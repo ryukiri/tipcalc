@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.amount_editText)
         val buttonTip = findViewById<Button>(R.id.tip_button)
 
-        buttonTip.isClickable = false
+        buttonTip.isEnabled = false
 
         fun EditText.addCurrencyFormatter() {
             this.addTextChangedListener(object: TextWatcher {
@@ -53,6 +53,8 @@ class MainActivity : AppCompatActivity() {
                         this@addCurrencyFormatter.setSelection(formated.length)
 
                         this@addCurrencyFormatter.addTextChangedListener(this)
+                        buttonTip.isEnabled = true
+
                     }
                 }
             })
